@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>My Progress</title>
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+
+<body>
+
+    <div class="progress-container">
+
+
+        <!-- Header -->
+
+        <header class="progress-header">
+
+            <div>
+
+                <p class="breadcrumb">
+                    Gujarati Alphabet → Progress
+                </p>
+
+                <h1>My Learning Progress</h1>
+
+                <p>
+                    Track your Gujarati sign
+                    language learning journey.
+                </p>
+
+            </div>
+
+
+            <button
+                class="back-button"
+                onclick="goAlphabet()"
+            >
+                ← Back
+            </button>
+
+        </header>
+
+
+        <!-- Overall Progress -->
+
+        <section class="overall-progress">
+
+            <div class="overall-progress-top">
+
+                <div>
+
+                    <p class="small-label">
+                        Overall Progress
+                    </p>
+
+                    <h2 id="overallPercentage">
+                        0%
+                    </h2>
+
+                </div>
+
+
+                <div class="progress-summary">
+
+                    <strong id="learnedCount">
+                        0 / 5
+                    </strong>
+
+                    <span>
+                        Letters Learned
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <div class="progress-bar">
+
+                <div
+                    id="overallProgressFill"
+                    class="progress-fill"
+                    style="width: 0%;">
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- Learning Progress -->
+
+        <section class="progress-section">
+
+            <h2>Letters</h2>
+
+            <p class="section-description">
+                Your Gujarati alphabet learning progress.
+            </p>
+
+
+            <div
+                id="letterProgressList"
+                class="letter-progress-list"
+            >
+
+                <!-- JavaScript will add letters here -->
+
+            </div>
+
+        </section>
+
+
+        <!-- Practice Statistics -->
+
+        <section class="progress-section">
+
+            <h2>Practice</h2>
+
+            <p class="section-description">
+                Your practice activity.
+            </p>
+
+
+            <div class="stats-grid">
+
+
+                <div class="stat-card">
+
+                    <div class="stat-icon">
+                        🎯
+                    </div>
+
+                    <div>
+
+                        <span>
+                            Questions Completed
+                        </span>
+
+                        <strong id="questionsCompleted">
+                            0 / 5
+                        </strong>
+
+                    </div>
+
+                </div>
+
+
+                <div class="stat-card">
+
+                    <div class="stat-icon">
+                        📚
+                    </div>
+
+                    <div>
+
+                        <span>
+                            Letters Learned
+                        </span>
+
+                        <strong id="practiceLearnedCount">
+                            0
+                        </strong>
+
+                    </div>
+
+                </div>
+
+
+            </div>
+
+        </section>
+
+
+        <!-- Actions -->
+
+        <section class="progress-actions">
+
+            <button
+                class="primary-button"
+                onclick="openLearnFromProgress()"
+            >
+                Continue Learning
+            </button>
+
+
+            <button
+                class="secondary-button"
+                onclick="openPracticeFromProgress()"
+            >
+                Practice Again
+            </button>
+
+        </section>
+
+
+    </div>
+
+
+    <!-- Firebase SDKs (compat build — works with plain <script> tags) -->
+    <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
+
+    <script src="firebase-config.js"></script>
+    <script src="script.js"></script>
+
+</body>
+
+</html>

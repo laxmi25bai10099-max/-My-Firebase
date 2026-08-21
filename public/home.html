@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Home - Gujarati Sign Learning</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="home-container">
+
+        <!-- Header -->
+
+        <header class="home-header">
+
+            <div>
+                <h1>Gujarati Sign Learning</h1>
+                <p>Welcome back!</p>
+            </div>
+
+            <button class="logout-button" onclick="logout()">
+                Logout
+            </button>
+
+        </header>
+
+
+        <!-- Continue Learning -->
+
+        <section class="continue-section">
+
+            <h2>Continue Learning</h2>
+
+            <div class="continue-card">
+
+                <div>
+                    <p class="small-label">
+                        Current Module
+                    </p>
+
+                    <h3>Gujarati Alphabet</h3>
+
+                    <p>
+                        Continue learning Gujarati letters
+                        through sign language.
+                    </p>
+
+                    <button
+                        class="primary-button"
+                        onclick="openAlphabet()">
+                        Continue Learning
+                    </button>
+                </div>
+
+                <div class="progress-circle" id="homeContinuePercent">
+                    20%
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- Learning Modules -->
+
+        <section class="modules-section">
+
+            <h2>Learning Modules</h2>
+
+            <div class="module-grid">
+
+
+                <!-- Gujarati Alphabet -->
+
+                <div class="module-card featured">
+
+                    <div class="module-icon">
+                        અ
+                    </div>
+
+                    <h3>Gujarati Alphabet</h3>
+
+                    <p>
+                        Learn Gujarati letters
+                        with sign language.
+                    </p>
+
+                    <span class="status">
+                        Main Module
+                    </span>
+
+                    <button
+                        class="secondary-button"
+                        onclick="openAlphabet()">
+                        Open Module
+                    </button>
+
+                </div>
+
+
+                <!-- Numbers -->
+
+                <div class="module-card">
+
+                    <div class="module-icon">
+                        123
+                    </div>
+
+                    <h3>Numbers</h3>
+
+                    <p>
+                        Learn numbers using
+                        sign language.
+                    </p>
+
+                    <span class="coming-status">
+                        Coming Soon
+                    </span>
+
+                </div>
+
+
+                <!-- Maths -->
+
+                <div class="module-card">
+
+                    <div class="module-icon">
+                        +
+                    </div>
+
+                    <h3>Maths</h3>
+
+                    <p>
+                        Practice basic mathematical
+                        concepts.
+                    </p>
+
+                    <span class="coming-status">
+                        Coming Soon
+                    </span>
+
+                </div>
+
+
+                <!-- Science -->
+
+                <div class="module-card">
+
+                    <div class="module-icon">
+                        🔬
+                    </div>
+
+                    <h3>Science</h3>
+
+                    <p>
+                        Explore basic science
+                        concepts.
+                    </p>
+
+                    <span class="coming-status">
+                        Coming Soon
+                    </span>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- Progress -->
+
+        <section class="progress-section">
+
+            <h2>My Progress</h2>
+
+            <div class="progress-card">
+
+                <div class="progress-info">
+
+                    <h3>Overall Learning Progress</h3>
+
+                    <p>
+                        Keep learning and practicing!
+                    </p>
+
+                </div>
+
+                <div class="progress-value" id="homeOverallPercent">
+                    20%
+                </div>
+
+            </div>
+
+        </section>
+
+    </div>
+
+
+    <!-- Firebase SDKs (compat build — works with plain <script> tags) -->
+    <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
+
+    <script src="firebase-config.js"></script>
+    <script src="script.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,1393 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #f5f7fb;
+}
+
+#app {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.login-container {
+    width: 100%;
+    max-width: 420px;
+    background: white;
+    padding: 40px;
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+}
+
+.login-container h1 {
+    text-align: center;
+    font-size: 28px;
+    margin-bottom: 8px;
+}
+
+.subtitle {
+    text-align: center;
+    color: #666;
+    margin-bottom: 30px;
+}
+
+.login-container h2 {
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+#loginForm {
+    display: flex;
+    flex-direction: column;
+}
+
+#loginForm label {
+    margin-bottom: 8px;
+    font-weight: bold;
+}
+
+#loginForm input {
+    padding: 13px;
+    margin-bottom: 18px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 15px;
+}
+
+#loginForm input:focus {
+    outline: none;
+    border-color: #2563eb;
+}
+
+#loginForm button {
+    padding: 13px;
+    margin-top: 5px;
+    border: none;
+    border-radius: 8px;
+    background: #2563eb;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+#loginForm button:hover {
+    opacity: 0.9;
+}
+
+.signup-text {
+    text-align: center;
+    margin-top: 25px;
+    color: #666;
+}
+
+.signup-text span {
+    color: #2563eb;
+    cursor: pointer;
+}
+
+#signupForm {
+    display: flex;
+    flex-direction: column;
+}
+
+#signupForm label {
+    margin-bottom: 8px;
+    font-weight: bold;
+}
+
+#signupForm input {
+    padding: 13px;
+    margin-bottom: 18px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 15px;
+}
+
+#signupForm input:focus {
+    outline: none;
+    border-color: #2563eb;
+}
+
+#signupForm button {
+    padding: 13px;
+    margin-top: 5px;
+    border: none;
+    border-radius: 8px;
+    background: #2563eb;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+#signupForm button:hover {
+    opacity: 0.9;
+}
+
+.auth-error {
+    background: #fee2e2;
+    color: #b91c1c;
+    padding: 10px 14px;
+    border-radius: 8px;
+    font-size: 14px;
+    margin-bottom: 18px;
+    text-align: center;
+}
+
+/* =========================
+   HOME PAGE
+========================= */
+
+.home-container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 30px 20px;
+}
+
+
+/* Header */
+
+.home-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 35px;
+}
+
+.home-header h1 {
+    margin: 0;
+    font-size: 30px;
+}
+
+.home-header p {
+    margin-top: 8px;
+    color: #666;
+}
+
+
+/* Logout */
+
+.logout-button {
+    padding: 10px 18px;
+    border: 1px solid #ddd;
+    background: white;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+
+/* Section */
+
+.continue-section,
+.modules-section,
+.progress-section {
+    margin-bottom: 40px;
+}
+
+.continue-section h2,
+.modules-section h2,
+.progress-section h2 {
+    margin-bottom: 18px;
+}
+
+
+/* Continue Card */
+
+.continue-card {
+    background: white;
+    padding: 25px;
+    border-radius: 16px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.06);
+}
+
+.small-label {
+    color: #666;
+    font-size: 14px;
+}
+
+.continue-card h3 {
+    font-size: 24px;
+    margin: 8px 0;
+}
+
+.continue-card p {
+    color: #666;
+}
+
+
+/* Buttons */
+
+.primary-button,
+.secondary-button {
+    padding: 11px 18px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.primary-button {
+    background: #2563eb;
+    color: white;
+}
+
+.secondary-button {
+    background: #2563eb;
+    color: white;
+}
+
+
+/* Progress Circle */
+
+.progress-circle {
+    width: 90px;
+    height: 90px;
+
+    border-radius: 50%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    border: 8px solid #2563eb;
+
+    font-weight: bold;
+}
+
+
+/* Module Grid */
+
+.module-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, 1fr);
+
+    gap: 20px;
+}
+
+
+/* Module Card */
+
+.module-card {
+    background: white;
+
+    padding: 22px;
+
+    border-radius: 14px;
+
+    box-shadow:
+        0 8px 25px rgba(0, 0, 0, 0.06);
+
+    display: flex;
+    flex-direction: column;
+}
+
+.module-card h3 {
+    margin-bottom: 8px;
+}
+
+.module-card p {
+    color: #666;
+
+    line-height: 1.5;
+
+    flex-grow: 1;
+}
+
+
+/* Main Module */
+
+.module-card.featured {
+    border: 2px solid #2563eb;
+}
+
+
+/* Module Icon */
+
+.module-icon {
+    width: 55px;
+    height: 55px;
+
+    border-radius: 12px;
+
+    background: #eef4ff;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 24px;
+    font-weight: bold;
+
+    margin-bottom: 15px;
+}
+
+
+/* Status */
+
+.status,
+.coming-status {
+    font-size: 12px;
+
+    margin-bottom: 15px;
+
+    font-weight: bold;
+}
+
+.status {
+    color: #2563eb;
+}
+
+.coming-status {
+    color: #777;
+}
+
+
+/* Progress */
+
+.progress-card {
+    background: white;
+
+    padding: 25px;
+
+    border-radius: 16px;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    box-shadow:
+        0 8px 25px rgba(0, 0, 0, 0.06);
+}
+
+.progress-info p {
+    color: #666;
+}
+
+.progress-value {
+    font-size: 32px;
+    font-weight: bold;
+}
+
+
+/* Mobile */
+
+@media (max-width: 800px) {
+
+    .module-grid {
+        grid-template-columns:
+            repeat(2, 1fr);
+    }
+
+}
+
+
+@media (max-width: 500px) {
+
+    .home-header {
+        flex-direction: column;
+
+        align-items: flex-start;
+
+        gap: 15px;
+    }
+
+    .continue-card {
+        flex-direction: column;
+
+        align-items: flex-start;
+
+        gap: 20px;
+    }
+
+    .module-grid {
+        grid-template-columns:
+            1fr;
+    }
+
+}
+
+/* =========================
+   GUJARATI ALPHABET PAGE
+========================= */
+
+.alphabet-container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 30px 20px;
+}
+
+
+/* Header */
+
+.alphabet-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 30px;
+}
+
+.alphabet-header h1 {
+    margin: 5px 0;
+    font-size: 32px;
+}
+
+.alphabet-header p {
+    color: #666;
+}
+
+.breadcrumb {
+    font-size: 14px;
+}
+
+
+/* Back button */
+
+.back-button {
+    padding: 10px 18px;
+    background: white;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+
+/* Progress */
+
+.alphabet-progress {
+    background: white;
+    padding: 22px;
+    border-radius: 14px;
+    margin-bottom: 35px;
+
+    box-shadow:
+        0 8px 25px rgba(0, 0, 0, 0.06);
+}
+
+.alphabet-progress h2 {
+    margin: 5px 0 15px;
+}
+
+.progress-bar {
+    width: 100%;
+    height: 10px;
+
+    background: #e5e7eb;
+
+    border-radius: 10px;
+
+    overflow: hidden;
+}
+
+.progress-fill {
+    height: 100%;
+    background: #2563eb;
+}
+
+
+/* Learning Options */
+
+.learning-options {
+    margin-bottom: 40px;
+}
+
+.learning-options > h2 {
+    margin-bottom: 20px;
+}
+
+.learning-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 20px;
+}
+
+
+/* Learning Card */
+
+.learning-card {
+    background: white;
+
+    padding: 25px;
+
+    border-radius: 16px;
+
+    box-shadow:
+        0 8px 25px rgba(0, 0, 0, 0.06);
+
+    display: flex;
+    flex-direction: column;
+}
+
+.learning-card h3 {
+    font-size: 22px;
+    margin: 12px 0 8px;
+}
+
+.learning-card p {
+    color: #666;
+
+    line-height: 1.5;
+
+    flex-grow: 1;
+}
+
+
+/* Icons */
+
+.learning-icon {
+    width: 55px;
+    height: 55px;
+
+    border-radius: 12px;
+
+    background: #eef4ff;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    font-size: 26px;
+}
+
+
+/* Current Lesson */
+
+.current-lesson {
+    margin-bottom: 40px;
+}
+
+.current-lesson > h2 {
+    margin-bottom: 20px;
+}
+
+.lesson-card {
+    background: white;
+
+    padding: 25px;
+
+    border-radius: 16px;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 25px;
+
+    box-shadow:
+        0 8px 25px rgba(0, 0, 0, 0.06);
+}
+
+.letter-preview {
+    width: 100px;
+    height: 100px;
+
+    border-radius: 16px;
+
+    background: #eef4ff;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    font-size: 55px;
+
+    font-weight: bold;
+}
+
+.lesson-info h3 {
+    margin: 5px 0 8px;
+}
+
+.lesson-info p {
+    color: #666;
+}
+
+
+/* Mobile */
+
+@media (max-width: 800px) {
+
+    .learning-grid {
+        grid-template-columns: 1fr;
+    }
+
+}
+
+
+@media (max-width: 500px) {
+
+    .alphabet-header {
+        flex-direction: column;
+
+        gap: 15px;
+    }
+
+    .lesson-card {
+        flex-direction: column;
+
+        align-items: flex-start;
+    }
+
+}
+
+/* =========================
+   LEARN PAGE
+========================= */
+
+.learn-container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 30px 20px;
+}
+
+
+/* Header */
+
+.learn-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 25px;
+}
+
+.learn-header h1 {
+    margin: 5px 0;
+    font-size: 32px;
+}
+
+
+/* Lesson Progress */
+
+.lesson-progress {
+    background: white;
+    padding: 18px 22px;
+    border-radius: 14px;
+    margin-bottom: 30px;
+
+    box-shadow:
+        0 8px 25px rgba(0, 0, 0, 0.06);
+}
+
+.lesson-progress-top {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+
+    font-size: 14px;
+    color: #666;
+}
+
+
+/* Learning Area */
+
+.learning-area {
+    display: grid;
+
+    grid-template-columns:
+        1fr 1fr;
+
+    gap: 25px;
+
+    margin-bottom: 25px;
+}
+
+
+/* Letter Section */
+
+.letter-section,
+.sign-section {
+    background: white;
+
+    border-radius: 16px;
+
+    padding: 30px;
+
+    text-align: center;
+
+    box-shadow:
+        0 8px 25px rgba(0, 0, 0, 0.06);
+}
+
+.big-letter {
+    width: 180px;
+    height: 180px;
+
+    margin: 20px auto;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    background: #eef4ff;
+
+    border-radius: 20px;
+
+    font-size: 100px;
+
+    font-weight: bold;
+}
+
+.letter-section h2 {
+    margin: 10px 0;
+}
+
+.letter-section p {
+    color: #666;
+}
+
+
+/* Sign Demonstration */
+
+.sign-placeholder {
+    height: 280px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+    align-items: center;
+
+    background: #f8fafc;
+
+    border: 2px dashed #d1d5db;
+
+    border-radius: 14px;
+
+    margin-top: 15px;
+}
+
+.sign-icon {
+    font-size: 70px;
+
+    margin-bottom: 10px;
+}
+
+.sign-placeholder h3 {
+    margin: 5px 0;
+}
+
+.sign-placeholder p {
+    color: #777;
+}
+
+
+/* Actions */
+
+.learning-actions {
+    display: flex;
+
+    justify-content: center;
+
+    gap: 15px;
+
+    margin-bottom: 25px;
+}
+
+
+/* Next */
+
+.next-section {
+    text-align: center;
+}
+
+.next-button {
+    padding: 13px 25px;
+
+    border: none;
+
+    border-radius: 8px;
+
+    background: #111827;
+
+    color: white;
+
+    font-size: 15px;
+
+    cursor: pointer;
+}
+
+
+/* Mobile */
+
+@media (max-width: 800px) {
+
+    .learning-area {
+        grid-template-columns: 1fr;
+    }
+
+}
+
+
+@media (max-width: 500px) {
+
+    .learn-header {
+        flex-direction: column;
+
+        gap: 15px;
+    }
+
+    .learning-actions {
+        flex-direction: column;
+    }
+
+}
+/* =========================
+   SIGN DEMONSTRATION
+========================= */
+
+.sign-demonstration {
+    width: 100%;
+}
+
+.sign-media {
+    width: 100%;
+    height: 280px;
+
+    background: #f8fafc;
+
+    border: 2px dashed #cbd5e1;
+
+    border-radius: 14px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+    align-items: center;
+
+    text-align: center;
+
+    margin-top: 15px;
+
+    overflow: hidden;
+}
+
+.sign-media .sign-icon {
+    font-size: 65px;
+
+    margin-bottom: 10px;
+}
+
+.sign-media p {
+    color: #64748b;
+}
+
+.sign-tip {
+    margin-top: 15px;
+
+    padding: 12px;
+
+    background: #f8fafc;
+
+    border-radius: 8px;
+
+    font-size: 14px;
+
+    color: #475569;
+}
+.sign-image {
+    width: 100%;
+    height: 100%;
+
+    object-fit: contain;
+
+    border-radius: 12px;
+}
+
+/* =========================
+   PRACTICE PAGE
+========================= */
+
+.practice-container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 30px 20px;
+}
+
+
+/* Header */
+
+.practice-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+
+    margin-bottom: 25px;
+}
+
+.practice-header h1 {
+    margin: 5px 0;
+    font-size: 32px;
+}
+
+.practice-header p {
+    color: #666;
+}
+
+
+/* Progress */
+
+.practice-progress {
+    background: white;
+
+    padding: 18px 22px;
+
+    border-radius: 14px;
+
+    margin-bottom: 25px;
+
+    box-shadow:
+        0 8px 25px rgba(0, 0, 0, 0.06);
+}
+
+.practice-progress-top {
+    display: flex;
+    justify-content: space-between;
+
+    margin-bottom: 10px;
+
+    font-size: 14px;
+
+    color: #666;
+}
+
+
+/* Question */
+
+.practice-question {
+    background: white;
+
+    padding: 30px;
+
+    border-radius: 16px;
+
+    text-align: center;
+
+    margin-bottom: 25px;
+
+    box-shadow:
+        0 8px 25px rgba(0, 0, 0, 0.06);
+}
+
+.practice-question h2 {
+    margin: 8px 0;
+}
+
+.practice-letter {
+    width: 140px;
+    height: 140px;
+
+    margin: 20px auto;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    background: #eef4ff;
+
+    border-radius: 20px;
+
+    font-size: 80px;
+
+    font-weight: bold;
+}
+
+.practice-question p {
+    color: #666;
+}
+
+
+/* Camera */
+
+.camera-section {
+    background: white;
+
+    padding: 30px;
+
+    border-radius: 16px;
+
+    text-align: center;
+
+    margin-bottom: 25px;
+
+    box-shadow:
+        0 8px 25px rgba(0, 0, 0, 0.06);
+}
+
+.camera-box {
+    height: 330px;
+
+    margin: 15px 0 20px;
+
+    border-radius: 14px;
+
+    border: 2px dashed #cbd5e1;
+
+    background: #f8fafc;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+    align-items: center;
+}
+
+.camera-icon {
+    font-size: 60px;
+
+    margin-bottom: 10px;
+}
+
+.camera-box h3 {
+    margin: 5px 0;
+}
+
+.camera-box p {
+    color: #64748b;
+}
+
+
+/* Result */
+
+.practice-result {
+    background: white;
+
+    padding: 25px;
+
+    border-radius: 16px;
+
+    text-align: center;
+
+    margin-bottom: 25px;
+
+    box-shadow:
+        0 8px 25px rgba(0, 0, 0, 0.06);
+}
+
+.result-icon {
+    font-size: 45px;
+
+    margin-bottom: 5px;
+}
+
+.practice-result h3 {
+    margin: 5px 0;
+}
+
+.practice-result p {
+    color: #666;
+}
+
+
+/* Actions */
+
+.practice-actions {
+    display: flex;
+
+    justify-content: center;
+
+    gap: 15px;
+
+    flex-wrap: wrap;
+}
+
+
+/* Hidden */
+
+.hidden {
+    display: none !important;
+}
+
+
+/* Mobile */
+
+@media (max-width: 600px) {
+
+    .practice-header {
+        flex-direction: column;
+
+        gap: 15px;
+    }
+
+    .camera-box {
+        height: 280px;
+    }
+
+}
+
+/* =========================
+   PROGRESS PAGE
+========================= */
+
+.progress-container {
+    max-width: 1000px;
+
+    margin: 0 auto;
+
+    padding: 30px 20px;
+}
+
+
+/* Header */
+
+.progress-header {
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: flex-start;
+
+    margin-bottom: 30px;
+}
+
+.progress-header h1 {
+    margin: 5px 0;
+
+    font-size: 32px;
+}
+
+.progress-header p {
+    color: #666;
+}
+
+
+/* Overall Progress */
+
+.overall-progress {
+    background: white;
+
+    padding: 25px;
+
+    border-radius: 16px;
+
+    margin-bottom: 30px;
+
+    box-shadow:
+        0 8px 25px rgba(0, 0, 0, 0.06);
+}
+
+.overall-progress-top {
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    margin-bottom: 20px;
+}
+
+.overall-progress h2 {
+    margin: 5px 0;
+
+    font-size: 36px;
+}
+
+.progress-summary {
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: flex-end;
+}
+
+.progress-summary strong {
+    font-size: 22px;
+}
+
+.progress-summary span {
+    color: #666;
+
+    font-size: 14px;
+}
+
+
+/* Sections */
+
+.progress-section {
+    margin-bottom: 30px;
+}
+
+.progress-section h2 {
+    margin-bottom: 5px;
+}
+
+.section-description {
+    color: #666;
+
+    margin-bottom: 18px;
+}
+
+
+/* Letter List */
+
+.letter-progress-list {
+    display: grid;
+
+    grid-template-columns:
+        repeat(5, 1fr);
+
+    gap: 15px;
+}
+
+.letter-progress-card {
+    background: white;
+
+    padding: 20px;
+
+    border-radius: 14px;
+
+    text-align: center;
+
+    box-shadow:
+        0 8px 25px rgba(0, 0, 0, 0.05);
+}
+
+.progress-letter {
+    font-size: 40px;
+
+    font-weight: bold;
+
+    margin-bottom: 10px;
+}
+
+.progress-status {
+    font-size: 13px;
+
+    color: #666;
+}
+
+
+/* Statistics */
+
+.stats-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, 1fr);
+
+    gap: 20px;
+}
+
+.stat-card {
+    background: white;
+
+    padding: 22px;
+
+    border-radius: 14px;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 15px;
+
+    box-shadow:
+        0 8px 25px rgba(0, 0, 0, 0.05);
+}
+
+.stat-icon {
+    font-size: 32px;
+}
+
+.stat-card div:last-child {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 5px;
+}
+
+.stat-card span {
+    color: #666;
+
+    font-size: 14px;
+}
+
+.stat-card strong {
+    font-size: 22px;
+}
+
+
+/* Actions */
+
+.progress-actions {
+    display: flex;
+
+    justify-content: center;
+
+    gap: 15px;
+
+    margin-top: 20px;
+}
+
+
+/* Mobile */
+
+@media (max-width: 700px) {
+
+    .letter-progress-list {
+        grid-template-columns:
+            repeat(2, 1fr);
+    }
+
+    .stats-grid {
+        grid-template-columns: 1fr;
+    }
+
+}
+
+
+@media (max-width: 500px) {
+
+    .progress-header {
+        flex-direction: column;
+
+        gap: 15px;
+    }
+
+    .overall-progress-top {
+        flex-direction: column;
+
+        align-items: flex-start;
+
+        gap: 15px;
+    }
+
+    .progress-summary {
+        align-items: flex-start;
+    }
+
+    .progress-actions {
+        flex-direction: column;
+    }
+
+}

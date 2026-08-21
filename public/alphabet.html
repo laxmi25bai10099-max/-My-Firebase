@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Gujarati Alphabet</title>
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+
+<body>
+
+    <div class="alphabet-container">
+
+        <!-- Header -->
+
+        <header class="alphabet-header">
+
+            <div>
+
+                <p class="breadcrumb">
+                    Home → Gujarati Alphabet
+                </p>
+
+                <h1>Gujarati Alphabet</h1>
+
+                <p>
+                    Learn Gujarati letters through
+                    sign language.
+                </p>
+
+            </div>
+
+            <button
+                class="back-button"
+                onclick="goHome()"
+            >
+                ← Home
+            </button>
+
+        </header>
+
+
+        <!-- Progress -->
+
+        <section class="alphabet-progress">
+
+            <div>
+
+                <p class="small-label">
+                    Your Progress
+                </p>
+
+                <h2 id="alphabetPercentText">20% Complete</h2>
+
+            </div>
+
+            <div class="progress-bar">
+
+                <div
+                    id="alphabetProgressFill"
+                    class="progress-fill"
+                    style="width: 20%;">
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- Learning Options -->
+
+        <section class="learning-options">
+
+            <h2>What would you like to do?</h2>
+
+            <div class="learning-grid">
+
+
+                <!-- LEARN -->
+
+                <div class="learning-card">
+
+                    <div class="learning-icon">
+                        📖
+                    </div>
+
+                    <h3>Learn</h3>
+
+                    <p>
+                        Learn Gujarati letters
+                        and see how their signs
+                        are performed.
+                    </p>
+
+                    <button
+                        class="primary-button"
+                        onclick="openLearn()"
+                    >
+                        Start Learning
+                    </button>
+
+                </div>
+
+
+                <!-- PRACTICE -->
+
+                <div class="learning-card">
+
+                    <div class="learning-icon">
+                        ✋
+                    </div>
+
+                    <h3>Practice</h3>
+
+                    <p>
+                        Practice the signs you
+                        have learned and test
+                        your understanding.
+                    </p>
+
+                    <button
+                        class="secondary-button"
+                        onclick="openPractice()"
+                    >
+                        Start Practice
+                    </button>
+
+                </div>
+
+
+                <!-- PROGRESS -->
+
+                <div class="learning-card">
+
+                    <div class="learning-icon">
+                        📊
+                    </div>
+
+                    <h3>Progress</h3>
+
+                    <p>
+                        See the letters you have
+                        learned and your practice
+                        performance.
+                    </p>
+
+                    <button
+                        class="secondary-button"
+                        onclick="openProgress()"
+                    >
+                        View Progress
+                    </button>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- Current Lesson -->
+
+        <section class="current-lesson">
+
+            <h2>Continue Your Lesson</h2>
+
+            <div class="lesson-card">
+
+                <div class="letter-preview">
+                    અ
+                </div>
+
+                <div class="lesson-info">
+
+                    <p class="small-label">
+                        Current Letter
+                    </p>
+
+                    <h3>Gujarati Letter: અ</h3>
+
+                    <p>
+                        Continue learning this
+                        letter and its sign.
+                    </p>
+
+                    <button
+                        class="primary-button"
+                        onclick="openLearn()"
+                    >
+                        Continue
+                    </button>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </div>
+
+
+    <!-- Firebase SDKs (compat build — works with plain <script> tags) -->
+    <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
+
+    <script src="firebase-config.js"></script>
+    <script src="script.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Practice Gujarati Signs</title>
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+
+<body>
+
+    <div class="practice-container">
+
+
+        <!-- Header -->
+
+        <header class="practice-header">
+
+            <div>
+
+                <p class="breadcrumb">
+                    Gujarati Alphabet → Practice
+                </p>
+
+                <h1>Practice Your Signs</h1>
+
+                <p>
+                    Test what you have learned.
+                </p>
+
+            </div>
+
+            <button
+                class="back-button"
+                onclick="goAlphabet()"
+            >
+                ← Back
+            </button>
+
+        </header>
+
+
+        <!-- Practice Progress -->
+
+        <section class="practice-progress">
+
+            <div class="practice-progress-top">
+
+                <span id="practiceCounter">
+                    Question 1 of 5
+                </span>
+
+                <span id="practicePercentage">
+                    20%
+                </span>
+
+            </div>
+
+
+            <div class="progress-bar">
+
+                <div
+                    id="practiceProgressFill"
+                    class="progress-fill"
+                    style="width: 20%;">
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- Question -->
+
+        <section class="practice-question">
+
+            <p class="small-label">
+                Your Task
+            </p>
+
+            <h2>
+                Show the sign for
+            </h2>
+
+            <div
+                id="practiceLetter"
+                class="practice-letter"
+            >
+                અ
+            </div>
+
+            <p id="practiceInstruction">
+                Perform the sign you learned
+                for this letter.
+            </p>
+
+        </section>
+
+
+        <!-- Camera Area -->
+
+        <section class="camera-section">
+
+            <p class="small-label">
+                Your Sign
+            </p>
+
+
+            <div
+                id="cameraBox"
+                class="camera-box"
+            >
+
+                <div class="camera-icon">
+                    📷
+                </div>
+
+                <h3>
+                    Camera Area
+                </h3>
+
+                <p>
+                    Your camera / sign recognition
+                    will appear here.
+                </p>
+
+            </div>
+
+
+            <button
+                id="startCameraButton"
+                class="secondary-button"
+                onclick="startPracticeCamera()"
+            >
+                📷 Start Camera
+            </button>
+
+        </section>
+
+
+        <!-- Result -->
+
+        <section
+            id="practiceResult"
+            class="practice-result hidden"
+        >
+
+            <div
+                id="resultIcon"
+                class="result-icon"
+            >
+                ✓
+            </div>
+
+            <h3 id="resultTitle">
+                Correct!
+            </h3>
+
+            <p id="resultMessage">
+                Great job!
+            </p>
+
+        </section>
+
+
+        <!-- Actions -->
+
+        <section class="practice-actions">
+
+            <button
+                id="checkButton"
+                class="primary-button"
+                onclick="checkPracticeSign()"
+            >
+                ✓ Check My Sign
+            </button>
+
+
+            <button
+                id="nextPracticeButton"
+                class="next-button hidden"
+                onclick="nextPracticeQuestion()"
+            >
+                Next Question →
+            </button>
+
+        </section>
+
+
+    </div>
+
+
+    <!-- Firebase SDKs (compat build — works with plain <script> tags) -->
+    <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
+
+    <script src="firebase-config.js"></script>
+    <script src="script.js"></script>
+
+</body>
+
+</html>
