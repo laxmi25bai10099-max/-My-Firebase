@@ -103,74 +103,7 @@ if (loginFormEl) {
             });
     });
 }
-/* =========================================================
-   GOOGLE AUTHENTICATION
-========================================================= */
 
-const googleLoginButton = document.getElementById("googleLogin");
-
-if (googleLoginButton) {
-
-    googleLoginButton.addEventListener("click", function () {
-
-        clearAuthError();
-
-        const provider = new firebase.auth.GoogleAuthProvider();
-
-        auth.signInWithPopup(provider)
-
-            .then(function (result) {
-
-                const user = result.user;
-
-                // Check whether this Google user already has
-                // a Firestore document
-                return db.collection("users")
-                    .doc(user.uid)
-                    .get()
-                    .then(function (doc) {
-
-                        if (!doc.exists) {
-
-                            // Create user document for first-time Google user
-                            return db.collection("users")
-                                .doc(user.uid)
-                                .set({
-                                    name: user.displayName || "",
-                                    email: user.email || "",
-                                    createdAt:
-                                        firebase.firestore.FieldValue.serverTimestamp(),
-
-                                    learnedLetters: [],
-                                    currentLesson: 0,
-                                    currentPracticeIndex: 0,
-                                    questionsCompleted: 0
-                                });
-
-                        }
-
-                    });
-
-            })
-
-            .then(function () {
-
-                // Go to home page after successful login
-                window.location.href = "home.html";
-
-            })
-
-            .catch(function (error) {
-
-                console.error("Google Login Error:", error);
-
-                showAuthError(error.message);
-
-            });
-
-    });
-
-}
 if (signupFormEl) {
     signupFormEl.addEventListener("submit", function (event) {
         event.preventDefault();
@@ -225,8 +158,9 @@ const alphabetLessons = [
         description: 'This is the Gujarati letter "અ".',
         signDescription:
             "Observe the sign for અ carefully.",
-        signMedia: null,
-        audio: "audio/a.mp3"
+        signMedia: "https://res.cloudinary.com/w6xk45pg/image/upload/v1787230404/a.png",
+        audio: "audio/a.mp3",
+        
     },
 
     {
@@ -235,7 +169,7 @@ const alphabetLessons = [
         description: 'This is the Gujarati letter "આ".',
         signDescription:
             "Observe the sign for આ carefully.",
-        signMedia: null,
+        signMedia:"https://res.cloudinary.com/w6xk45pg/image/upload/v1787233882/aa.png",
         audio: "audio/aa.mp3"
     },
 
@@ -245,7 +179,8 @@ const alphabetLessons = [
         description: 'This is the Gujarati letter "ઇ".',
         signDescription:
             "Observe the sign for ઇ carefully.",
-        signMedia: null,
+        mediaType: "video",
+        signMedia:"https://res.cloudinary.com/w6xk45pg/video/upload/v1787253935/Video_Project.mp4",
         audio: "audio/i.mp3"
     },
 
@@ -448,6 +383,24 @@ function updateLesson() {
 
     if (lesson.signMedia) {
 
+    if (lesson.mediaType === "video") {
+
+        signMedia.innerHTML = `
+            <video
+                class="sign-video"
+                controls
+                autoplay
+                muted
+                loop
+                playsinline
+            >
+                <source src="${lesson.signMedia}" type="video/mp4">
+                Your browser does not support video.
+            </video>
+        `;
+
+    } else {
+
         signMedia.innerHTML = `
             <img
                 src="${lesson.signMedia}"
@@ -456,20 +409,22 @@ function updateLesson() {
             >
         `;
 
-    } else {
-
-        signMedia.innerHTML = `
-            <div class="sign-icon">
-                ✋
-            </div>
-
-            <p>
-                Sign demonstration
-                will appear here
-            </p>
-        `;
-
     }
+
+} else {
+
+    signMedia.innerHTML = `
+        <div class="sign-icon">
+            ✋
+        </div>
+
+        <p>
+            Sign demonstration
+            will appear here
+        </p>
+    `;
+
+}
 
     const lessonNumber = currentLesson + 1;
 
@@ -761,7 +716,6 @@ function loadProgressPage() {
     }
 
 }
-
 
 
 
