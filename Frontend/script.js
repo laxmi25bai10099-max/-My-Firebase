@@ -103,7 +103,74 @@ if (loginFormEl) {
             });
     });
 }
+/* =========================================================
+   GOOGLE AUTHENTICATION
+========================================================= */
 
+const googleLoginButton = document.getElementById("googleLogin");
+
+if (googleLoginButton) {
+
+    googleLoginButton.addEventListener("click", function () {
+
+        clearAuthError();
+
+        const provider = new firebase.auth.GoogleAuthProvider();
+
+        auth.signInWithPopup(provider)
+
+            .then(function (result) {
+
+                const user = result.user;
+
+                // Check whether this Google user already has
+                // a Firestore document
+                return db.collection("users")
+                    .doc(user.uid)
+                    .get()
+                    .then(function (doc) {
+
+                        if (!doc.exists) {
+
+                            // Create user document for first-time Google user
+                            return db.collection("users")
+                                .doc(user.uid)
+                                .set({
+                                    name: user.displayName || "",
+                                    email: user.email || "",
+                                    createdAt:
+                                        firebase.firestore.FieldValue.serverTimestamp(),
+
+                                    learnedLetters: [],
+                                    currentLesson: 0,
+                                    currentPracticeIndex: 0,
+                                    questionsCompleted: 0
+                                });
+
+                        }
+
+                    });
+
+            })
+
+            .then(function () {
+
+                // Go to home page after successful login
+                window.location.href = "home.html";
+
+            })
+
+            .catch(function (error) {
+
+                console.error("Google Login Error:", error);
+
+                showAuthError(error.message);
+
+            });
+
+    });
+
+}
 if (signupFormEl) {
     signupFormEl.addEventListener("submit", function (event) {
         event.preventDefault();
